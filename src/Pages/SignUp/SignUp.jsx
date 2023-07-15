@@ -22,9 +22,27 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         if (user) {
+          let timerInterval;
           Swal.fire({
-            title: "User Created Successfully!",
-            icon: "success",
+            title: "User Created Successfully",
+            html: "You will be redirected to the page in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const b = Swal.getHtmlContainer().querySelector("b");
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft();
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
           });
         }
       })
@@ -108,9 +126,7 @@ const SignUp = () => {
 
               {/* google login */}
               <div className='divider'>OR</div>
-
               <button className='btn btn-circle btn-outline mx-auto'>G</button>
-
               <p className='my-4 text-center'>
                 Already Have An Account? Please{" "}
                 <Link className='text-orange-500 font-bold' to='/login'>

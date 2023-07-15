@@ -20,9 +20,27 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         if (user) {
+          let timerInterval;
           Swal.fire({
-            title: "User Login Successfully!",
-            icon: "success",
+            title: "User Logged In Successfully",
+            html: "You will be redirected to the page in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const b = Swal.getHtmlContainer().querySelector("b");
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft();
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log("I was closed by the timer");
+            }
           });
         }
       })

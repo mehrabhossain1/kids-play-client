@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className='navbar bg-base-100'>
       <div className='navbar-start'>
@@ -57,19 +62,23 @@ const Navbar = () => {
           <li>
             <a>All Toys</a>
           </li>
-          <li>
-            <a>My Toys</a>
-          </li>
-          <li>
-            <a>Add A Toy</a>
-          </li>
+          {user && (
+            <>
+              <li>
+                <a>My Toys</a>
+              </li>
+              <li>
+                <a>Add A Toy</a>
+              </li>
+            </>
+          )}
           <li>
             <a>Blogs</a>
           </li>
         </ul>
       </div>
       <div className='navbar-end'>
-        <a className='btn'>User Profile Pic</a>
+        {user && <a className='btn'>User Profile Pic</a>}
       </div>
     </div>
   );
