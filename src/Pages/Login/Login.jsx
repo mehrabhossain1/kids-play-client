@@ -6,7 +6,7 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -45,6 +45,10 @@ const Login = () => {
         }
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn();
   };
 
   return (
@@ -103,7 +107,12 @@ const Login = () => {
               {/* google login */}
               <div className='divider'>OR</div>
 
-              <button className='btn btn-circle btn-outline mx-auto'>G</button>
+              <button
+                onClick={handleGoogleLogin}
+                className='btn btn-circle btn-outline mx-auto'
+              >
+                G
+              </button>
 
               <p className='my-4 text-center'>
                 Do not Have An Account? Please{" "}
