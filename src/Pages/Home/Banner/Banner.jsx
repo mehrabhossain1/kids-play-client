@@ -1,12 +1,12 @@
 const Banner = () => {
   return (
-    <div className='carousel w-full'>
+    <div className='carousel w-full h-[600px]'>
       <div id='slide1' className='carousel-item relative w-full'>
         <img
           src={
-            "https://images.unsplash.com/photo-1582571352032-448f7928eca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cm9ib3QlMjB0b3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
+            "https://www.shutterstock.com/image-vector/toy-store-assortment-showcase-window-600w-1963867192.jpg"
           }
-          className='w-full'
+          className='w-full rounded-xl'
         />
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
           <a href='#slide4' className='btn btn-circle'>
@@ -19,8 +19,8 @@ const Banner = () => {
       </div>
       <div id='slide2' className='carousel-item relative w-full'>
         <img
-          src='/images/stock/photo-1609621838510-5ad474b7d25d.jpg'
-          className='w-full'
+          src='https://www.shutterstock.com/image-vector/robot-look-out-corner-poster-600w-770251675.jpg'
+          className='w-full rounded-xl'
         />
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
           <a href='#slide1' className='btn btn-circle'>
@@ -33,8 +33,8 @@ const Banner = () => {
       </div>
       <div id='slide3' className='carousel-item relative w-full'>
         <img
-          src='/images/stock/photo-1414694762283-acccc27bca85.jpg'
-          className='w-full'
+          src='https://www.shutterstock.com/image-vector/robots-flat-vector-illustrations-set-600w-1536821945.jpg'
+          className='w-full rounded-xl'
         />
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
           <a href='#slide2' className='btn btn-circle'>
@@ -47,8 +47,8 @@ const Banner = () => {
       </div>
       <div id='slide4' className='carousel-item relative w-full'>
         <img
-          src='/images/stock/photo-1665553365602-b2fb8e5d1707.jpg'
-          className='w-full'
+          src='https://www.shutterstock.com/image-photo/old-classic-tin-toy-robots-600w-615371489.jpg'
+          className='w-full rounded-lg'
         />
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
           <a href='#slide3' className='btn btn-circle'>
