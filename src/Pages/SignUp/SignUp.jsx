@@ -22,11 +22,22 @@ const SignUp = () => {
             <form onSubmit={handleSignUp}>
               <div className='form-control'>
                 <label className='label'>
+                  <span className='label-text'>Name</span>
+                </label>
+                <input
+                  name='name'
+                  type='text'
+                  placeholder='name'
+                  className='input input-bordered'
+                />
+              </div>
+              <div className='form-control'>
+                <label className='label'>
                   <span className='label-text'>Email</span>
                 </label>
                 <input
                   name='email'
-                  type='text'
+                  type='email'
                   placeholder='email'
                   className='input input-bordered'
                 />
@@ -37,8 +48,19 @@ const SignUp = () => {
                 </label>
                 <input
                   name='password'
-                  type='text'
+                  type='password'
                   placeholder='password'
+                  className='input input-bordered'
+                />
+              </div>
+              <div className='form-control'>
+                <label className='label'>
+                  <span className='label-text'>Photo URL</span>
+                </label>
+                <input
+                  name='photo'
+                  type='text'
+                  placeholder='Photo URL'
                   className='input input-bordered'
                 />
                 <label className='label'>
