@@ -5,7 +5,6 @@ import Navbar from "./Shared/Navbar/Navbar";
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
       <Navbar></Navbar>
       <Footer></Footer>
       <p className='read-the-docs'>

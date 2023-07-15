@@ -42,33 +42,37 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className='btn btn-ghost normal-case text-xl'>daisyUI</a>
+        <img
+          className='h-16 w-28 rounded-lg'
+          src={
+            "https://img.freepik.com/premium-vector/minimalist-modern-kids-toy-simple-flat-icon-logo-template-vector-illustration-design-children-education-by-montessori-system-logo-concept_534135-459.jpg"
+          }
+          alt=''
+        />
+        <a className='btn btn-ghost normal-case text-xl'>Kids Play</a>
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1'>
           <li>
-            <a>Item 1</a>
+            <a>Home</a>
           </li>
-          <li tabIndex={0}>
-            <details>
-              <summary>Parent</summary>
-              <ul className='p-2'>
-                <li>
-                  <a>Baba 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
+
+          <li>
+            <a>All Toys</a>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>My Toys</a>
+          </li>
+          <li>
+            <a>Add A Toy</a>
+          </li>
+          <li>
+            <a>Blogs</a>
           </li>
         </ul>
       </div>
       <div className='navbar-end'>
-        <a className='btn'>Button</a>
+        <a className='btn'>User Profile Pic</a>
       </div>
     </div>
   );
