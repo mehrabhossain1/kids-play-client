@@ -85,11 +85,14 @@ const Navbar = () => {
       <div className='navbar-end'>
         {user ? (
           <>
-            <img
-              className='h-10 rounded-full mr-2'
-              src={user.photoURL}
-              alt=''
-            />
+            <div className='tooltip tooltip-left' data-tip={user?.displayName}>
+              <img
+                className='h-10 rounded-full mr-2'
+                src={user?.photoURL}
+                alt=''
+              />
+            </div>
+
             <button className='btn btn-secondary' onClick={handleLogout}>
               Log Out
             </button>
