@@ -24,21 +24,19 @@ const Navbar = () => {
             className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
             <li>
-              <a>Item 1</a>
+              <a>Home</a>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className='p-2'>
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <a>All Toys</a>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>My Toys</a>
+            </li>
+            <li>
+              <a>Add A Toy</a>
+            </li>
+            <li>
+              <a>Blogs</a>
             </li>
           </ul>
         </div>
@@ -56,7 +54,6 @@ const Navbar = () => {
           <li>
             <a>Home</a>
           </li>
-
           <li>
             <a>All Toys</a>
           </li>
