@@ -1,6 +1,5 @@
 const MyToyTable = ({ toy, index }) => {
   const {
-    
     seller_name,
     name,
     subcategory,
@@ -15,8 +14,9 @@ const MyToyTable = ({ toy, index }) => {
     <>
       <tr>
         <th>{index + 1}</th>
-        
-        <td><img src={picture} alt="" /></td>
+        <td>
+          <img src={picture} alt='' />
+        </td>
         <td>{name}</td>
         <td>{seller_name}</td>
         <td>{seller_email}</td>
