@@ -24,8 +24,12 @@ const MyToyTable = ({ toy, index }) => {
         <td>{price}</td>
         <td>{quantity}</td>
         <td>{description}</td>
-        <td>Update btn</td>
-        <td>delete btn</td>
+        <td>
+          <button className='btn btn-info'>Update</button>
+        </td>
+        <td>
+          <button className='btn btn-error'>Delete</button>
+        </td>
       </tr>
     </>
   );

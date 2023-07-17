@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ToyTable from "./ToyTable";
+import Navbar from "../../Shared/Navbar/Navbar";
+import Footer from "../../Shared/Footer/Footer";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
@@ -13,6 +15,7 @@ const AllToys = () => {
 
   return (
     <>
+      <Navbar></Navbar>
       <h2 className='text-3xl font-bold text-center my-10'>All Toys</h2>
       <div>
         <div className='overflow-x-auto'>
@@ -38,6 +41,7 @@ const AllToys = () => {
           </table>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };

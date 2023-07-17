@@ -36,7 +36,7 @@ const AddToy = () => {
 
     console.log(toyData);
 
-    axios.post("http://localhost:8800/my-toys", toyData).then((result) => {
+    axios.post("http://localhost:8800/myToys", toyData).then((result) => {
       console.log(result.data);
       if (result.data.insertedId) {
         Swal.fire("Toy Added to database successfully");
