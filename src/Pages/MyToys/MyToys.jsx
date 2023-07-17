@@ -1,19 +1,19 @@
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import ToyTable from "./ToyTable";
 
-const AllToys = () => {
-  const [toys, setToys] = useState([]);
+const MyToys = () => {
+  const [myToys, setMyToys] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8800/toys").then((result) => {
-      setToys(result.data);
+    axios.get("http://localhost:8800/myToys").then((result) => {
+      setMyToys(result.data);
+      console.log(result.data);
     });
   }, []);
 
   return (
     <>
-      <h2 className='text-3xl font-bold text-center my-10'>All Toys</h2>
+      <h2 className='text-3xl font-bold text-center my-10'>My Toys</h2>
       <div>
         <div className='overflow-x-auto'>
           <table className='table'>
@@ -30,11 +30,7 @@ const AllToys = () => {
               </tr>
             </thead>
 
-            <tbody>
-              {toys.map((toy, index) => (
-                <ToyTable key={toy._id} toy={toy} index={index}></ToyTable>
-              ))}
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
@@ -42,4 +38,4 @@ const AllToys = () => {
   );
 };
 
-export default AllToys;
+export default MyToys;

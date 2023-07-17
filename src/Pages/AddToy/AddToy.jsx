@@ -3,6 +3,7 @@ import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
 import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -35,8 +36,12 @@ const AddToy = () => {
 
     console.log(toyData);
 
-    axios.post("http://localhost:8800/toys", toyData).then((result) => {
+    axios.post("http://localhost:8800/my-toys", toyData).then((result) => {
       console.log(result.data);
+      if (result.data.insertedId) {
+        Swal.fire("Toy Added to database successfully");
+        form.reset();
+      }
     });
   };
 
