@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MyToyTable from "./MyToyTable";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
@@ -21,16 +22,24 @@ const MyToys = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Seller Name</th>
+                <th>Picture</th>
                 <th>Toy Name</th>
-                <th>Sub-Category</th>
+                <th>seller name</th>
+                <th>seller email</th>
+                <th>Sub-category</th>
                 <th>Price</th>
-                <th>Available Quantity</th>
-                <th> </th>
+                <th>Rating</th>
+                <th>Available quantity</th>
+                <th>Detail description</th>
+                <th></th>
               </tr>
             </thead>
 
-            <tbody></tbody>
+            <tbody>
+              {myToys.map((toy, index) => (
+                <MyToyTable key={toy._id} toy={toy} index={index}></MyToyTable>
+              ))}
+            </tbody>
           </table>
         </div>
       </div>
