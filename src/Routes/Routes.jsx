@@ -23,15 +23,17 @@ const router = createBrowserRouter([
         path: "signUp",
         element: <SignUp></SignUp>,
       },
+      {
+        path: "toys",
+        element: <AllToys></AllToys>,
+      },
+      {
+        path: "toys/:id",
+        element: <SingleToy></SingleToy>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8800/toys/${params.id}`),
+      },
     ],
-  },
-  {
-    path: "toys",
-    element: <AllToys></AllToys>,
-  },
-  {
-    path: "toys/:id",
-    element: <SingleToy></SingleToy>,
   },
 ]);
 
