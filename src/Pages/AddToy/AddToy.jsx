@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
 import { AuthContext } from "../../Providers/AuthProvider";
+import axios from "axios";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -18,19 +19,25 @@ const AddToy = () => {
     const price = form.price.value;
     const available_quantity = form.available_quantity.value;
     const detail = form.detail.value;
+    const rating = form.rating.value;
 
-    const info = {
+    const toyData = {
       picture,
-      toy_name,
+      name: toy_name,
       seller_name,
       seller_email,
-      sub_category,
+      subcategory: sub_category,
       price,
-      available_quantity,
-      detail,
+      quantity: available_quantity,
+      description: detail,
+      rating,
     };
 
-    console.log(info);
+    console.log(toyData);
+
+    axios.post("http://localhost:8800/toys", toyData).then((result) => {
+      console.log(result.data);
+    });
   };
 
   return (
@@ -129,6 +136,17 @@ const AddToy = () => {
                   </label>
                   <input
                     name='detail'
+                    type='text'
+                    placeholder=''
+                    className='input input-bordered'
+                  />
+                </div>
+                <div className='form-control'>
+                  <label className='label'>
+                    <span className='label-text'>Rating</span>
+                  </label>
+                  <input
+                    name='rating'
                     type='text'
                     placeholder=''
                     className='input input-bordered'
