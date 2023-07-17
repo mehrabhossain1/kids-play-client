@@ -1,5 +1,7 @@
-const ToyTable = ({ toy, index, toys, setToys }) => {
-  const { seller_name, name, subcategory, price, quantity } = toy;
+import { Link } from "react-router-dom";
+
+const ToyTable = ({ toy, index }) => {
+  const { _id, seller_name, name, subcategory, price, quantity } = toy;
 
   return (
     <>
@@ -11,7 +13,9 @@ const ToyTable = ({ toy, index, toys, setToys }) => {
         <td>{price}</td>
         <td>{quantity}</td>
         <td>
-          <button className='btn btn-primary'>View Details</button>
+          <Link to={`/toys/${_id}`}>
+            <button className='btn btn-primary'>View Details</button>
+          </Link>
         </td>
       </tr>
     </>
