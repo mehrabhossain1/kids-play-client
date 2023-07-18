@@ -42,7 +42,7 @@ const MyToyTable = ({ toy, index, myToys, setMyToys, status }) => {
 
   const handleUpdate = (id) => {
     fetch(`http://localhost:5000/myToys/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -81,7 +81,12 @@ const MyToyTable = ({ toy, index, myToys, setMyToys, status }) => {
           {status ? (
             <button className='btn btn-info'>Updated</button>
           ) : (
-            <button className='btn btn-warning'>Update</button>
+            <button
+              onClick={() => handleUpdate(_id)}
+              className='btn btn-warning'
+            >
+              Update
+            </button>
           )}
         </td>
         <td>
