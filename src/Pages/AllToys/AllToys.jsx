@@ -13,6 +13,10 @@ const AllToys = () => {
     });
   }, []);
 
+  const defaultLimit = 20;
+
+  // const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <>
       <Navbar></Navbar>
@@ -34,7 +38,7 @@ const AllToys = () => {
             </thead>
 
             <tbody>
-              {toys.map((toy, index) => (
+              {toys.slice(0, defaultLimit).map((toy, index) => (
                 <ToyTable key={toy._id} toy={toy} index={index}></ToyTable>
               ))}
             </tbody>
