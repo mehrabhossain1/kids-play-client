@@ -6,7 +6,7 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8800/myToys").then((result) => {
+    axios.get("http://localhost:5000/myToys").then((result) => {
       setMyToys(result.data);
       console.log(result.data);
     });

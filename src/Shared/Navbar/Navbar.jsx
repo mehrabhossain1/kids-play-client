@@ -38,13 +38,13 @@ const Navbar = () => {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/toys'>All Toys</Link>
+              <Link to='toys'>All Toys</Link>
             </li>
             <li>
               <Link to='myToys'>My Toys</Link>
             </li>
             <li>
-              <Link to='/add-toy'>Add A Toy</Link>
+              <Link to='add-toy'>Add A Toy</Link>
             </li>
             <li>
               <a>Blogs</a>
@@ -68,7 +68,7 @@ const Navbar = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/toys'>All Toys</Link>
+            <Link to='toys'>All Toys</Link>
           </li>
           {user && (
             <>

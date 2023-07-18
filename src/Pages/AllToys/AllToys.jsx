@@ -8,7 +8,7 @@ const AllToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8800/toys").then((result) => {
+    axios.get("http://localhost:5000/toys").then((result) => {
       setToys(result.data);
     });
   }, []);
