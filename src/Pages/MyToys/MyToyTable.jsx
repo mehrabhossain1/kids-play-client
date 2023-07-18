@@ -16,32 +16,34 @@ const MyToyTable = ({ toy, index, myToys, setMyToys, status }) => {
   } = toy;
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/myToys/${id}`).then((result) => {
-      console.log(result.data);
+    axios
+      .delete(`https://assignment-eleven-server-gilt.vercel.app/myToys/${id}`)
+      .then((result) => {
+        console.log(result.data);
 
-      if (result.data) {
-        const newData = myToys.filter((toy) => toy._id != id);
-        console.log(newData);
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
-        setMyToys(newData);
-      }
-    });
+        if (result.data) {
+          const newData = myToys.filter((toy) => toy._id != id);
+          console.log(newData);
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+          setMyToys(newData);
+        }
+      });
   };
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/myToys/${id}`, {
+    fetch(`https://assignment-eleven-server-gilt.vercel.app/myToys/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

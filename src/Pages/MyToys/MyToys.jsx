@@ -10,10 +10,14 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/myToys/${user?.email}`).then((result) => {
-      setMyToys(result.data);
-      console.log(result.data);
-    });
+    axios
+      .get(
+        `https://assignment-eleven-server-gilt.vercel.app/myToys/${user?.email}`
+      )
+      .then((result) => {
+        setMyToys(result.data);
+        console.log(result.data);
+      });
   }, []);
 
   return (

@@ -8,9 +8,11 @@ const AllToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/toys").then((result) => {
-      setToys(result.data);
-    });
+    axios
+      .get("https://assignment-eleven-server-gilt.vercel.app/toys")
+      .then((result) => {
+        setToys(result.data);
+      });
   }, []);
 
   const defaultLimit = 20;

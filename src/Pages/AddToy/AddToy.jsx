@@ -36,13 +36,15 @@ const AddToy = () => {
 
     console.log(toyData);
 
-    axios.post("http://localhost:5000/myToys", toyData).then((result) => {
-      console.log(result.data);
-      if (result.data.insertedId) {
-        Swal.fire("Toy Added to database successfully");
-        form.reset();
-      }
-    });
+    axios
+      .post("https://assignment-eleven-server-gilt.vercel.app/myToys", toyData)
+      .then((result) => {
+        console.log(result.data);
+        if (result.data.insertedId) {
+          Swal.fire("Toy Added to database successfully");
+          form.reset();
+        }
+      });
   };
 
   return (
