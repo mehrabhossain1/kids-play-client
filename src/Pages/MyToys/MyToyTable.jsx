@@ -1,5 +1,9 @@
-const MyToyTable = ({ toy, index }) => {
+import axios from "axios";
+import Swal from "sweetalert2";
+
+const MyToyTable = ({ toy, index, myToys, setMyToys }) => {
   const {
+    _id,
     seller_name,
     name,
     subcategory,
@@ -7,8 +11,34 @@ const MyToyTable = ({ toy, index }) => {
     quantity,
     picture,
     seller_email,
+    rating,
     description,
   } = toy;
+
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/myToys/${id}`).then((result) => {
+      console.log(result.data);
+
+      if (result.data) {
+        const newData = myToys.filter((toy) => toy._id != id);
+        console.log(newData);
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
+        setMyToys(newData);
+      }
+    });
+  };
 
   return (
     <>
@@ -23,12 +53,15 @@ const MyToyTable = ({ toy, index }) => {
         <td>{subcategory}</td>
         <td>{price}</td>
         <td>{quantity}</td>
+        <td>{rating}</td>
         <td>{description}</td>
         <td>
           <button className='btn btn-info'>Update</button>
         </td>
         <td>
-          <button className='btn btn-error'>Delete</button>
+          <button onClick={() => handleDelete(_id)} className='btn btn-error'>
+            Delete
+          </button>
         </td>
       </tr>
     </>
