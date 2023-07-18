@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const MyToyTable = ({ toy, index, myToys, setMyToys }) => {
+const MyToyTable = ({ toy, index, myToys, setMyToys, status }) => {
   const {
     _id,
     seller_name,
@@ -40,6 +40,28 @@ const MyToyTable = ({ toy, index, myToys, setMyToys }) => {
     });
   };
 
+  const handleUpdate = (id) => {
+    fetch(`http://localhost:5000/myToys/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          const remaining = myToys.filter((toy) => toy._id != id);
+          const updated = myToys.find((toy) => toy._id == id);
+          updated.status = "confirm";
+          const newData = [updated, ...remaining];
+          Swal.fire("Data Updated");
+          setMyToys(newData);
+        }
+      });
+  };
+
   return (
     <>
       <tr>
@@ -56,7 +78,13 @@ const MyToyTable = ({ toy, index, myToys, setMyToys }) => {
         <td>{rating}</td>
         <td>{description}</td>
         <td>
-          <button className='btn btn-info'>Update</button>
+          {status == "confirm" ? (
+            <span className='font-bold text-info'>Updated</span>
+          ) : (
+            <button onClick={() => handleUpdate(_id)} className='btn btn-info'>
+              Update
+            </button>
+          )}
         </td>
         <td>
           <button onClick={() => handleDelete(_id)} className='btn btn-error'>
