@@ -78,12 +78,10 @@ const MyToyTable = ({ toy, index, myToys, setMyToys, status }) => {
         <td>{rating}</td>
         <td>{description}</td>
         <td>
-          {status == "confirm" ? (
-            <span className='font-bold text-info'>Updated</span>
+          {status ? (
+            <button className='btn btn-info'>Updated</button>
           ) : (
-            <button onClick={() => handleUpdate(_id)} className='btn btn-info'>
-              Update
-            </button>
+            <button className='btn btn-warning'>Update</button>
           )}
         </td>
         <td>

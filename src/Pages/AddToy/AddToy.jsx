@@ -83,7 +83,7 @@ const AddToy = () => {
                   <input
                     name='seller_name'
                     type='text'
-                    placeholder=''
+                    // placeholder={user?.displayName}
                     defaultValue={user?.displayName}
                     className='input input-bordered'
                     readOnly

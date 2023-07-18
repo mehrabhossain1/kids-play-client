@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import MyToyTable from "./MyToyTable";
 import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const MyToys = () => {
+  const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/myToys").then((result) => {
+    axios.get(`http://localhost:5000/myToys/${user?.email}`).then((result) => {
       setMyToys(result.data);
       console.log(result.data);
     });
